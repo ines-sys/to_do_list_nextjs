@@ -101,7 +101,7 @@ const List = () => {
   );
 
   return (
-    <div className="max-w-[990px] w-full mx-auto px-6">
+    <div className="max-w-[990px] w-full mx-auto px-6 text-black">
       <form className="flex justify-center md:flex-row flex-col gap-2" onSubmit={(e) => handleSubmit(e)}>
         <input type="text" placeholder="new task" className="px-4 py-2 px-4 border rounded" ref={inputRef} />
         <button className={isEditing ? "bg-pink-600 px-4 py-2 text-white font-bold py-2 px-4 rounded-full" : "bg-pink-300 py-2 px-4 text-white font-bold py-2 px-4 rounded-full"}>{isEditing ? "Finish task edition" : "Add new task"}</button>
@@ -119,7 +119,7 @@ const List = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      {tasks.length > 0 && (
+      {tasks && tasks.length > 0 && (
         <ul>
           {filteredTasks.map((el) => (
             <li key={el.id} className="py-2 px-4 border-t border-gray-300 flex items-center justify-between">
@@ -134,6 +134,7 @@ const List = () => {
           ))}
         </ul>
       )}
+    
     </div>
   );
 };
